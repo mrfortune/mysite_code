@@ -1,0 +1,435 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WorldShaker Interactive::Work</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/worldshaker_gs.css" rel="stylesheet" type="text/css"/>
+<link href="css/responsive-gs-12col.css" rel="stylesheet" type="text/css"/>
+<!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
+<!--<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox-buttons.css?v=1.0.5" />
+<script type="text/javascript" src="js/jquery.fancybox-buttons.js"></script>
+<!-- Add Thumbnail helper (this is optional) -->
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox-thumbs.css" />
+<script type="text/javascript" src="js/jquery.fancybox-thumbs.js"></script>
+<!-- Add Media helper (this is optional) -->
+<script type="text/javascript" src="js/jquery.fancybox-media.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+<script src="js/tinynav.min.js"></script>
+<link href="css/reset.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="//use.typekit.net/mkl0hak.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">
+$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+$(function () {
+
+      // TinyNav.js 1
+      $('#nav').tinyNav({
+		header: 'Navigation',
+        active: 'selected'
+      });
+      
+      // TinyNav.js 2
+      $('#nav2').tinyNav({
+        header: 'Navigation' // Writing any title with this option triggers the header
+      });
+
+    });
+});
+	</script>
+
+</head>
+
+<body>
+<header class="row">
+<hgroup>
+<nav class="clearfix row">
+<ul id="nav" class="clearfix">
+	<li><a href="work.php">work</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="company.php">company</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li>
+    <!--<li><a href="solutions.php">company</a></li>-->
+	<li class="last"><a href="contact.php">contact</a></li>
+</ul>  
+
+</nav>
+<div class="logo">
+<a href="index.php"><img src="images/logo.gif" alt="WORLDSHAKER INTERACTIVE" /></a>
+</div>
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=worldshaker"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'right',
+      'numPreferredServices' : 5
+    }, 
+    'follow' : {
+      'services' : [
+        {'service': 'facebook', 'id': 'worldshakerinteractive'},
+        {'service': 'twitter', 'id': '@RobFortune007'},
+        {'service': 'linkedin', 'id': 'robertsharris'}
+      ]
+    }   
+  });
+</script>
+<!-- AddThis Smart Layers END -->
+</hgroup>
+
+</header>
+
+<div id="page_wrap" class="container row">
+
+<section id="content_wrap" class="row">
+<article class="col clr">
+<h1>WORK</h1><!--<img src="images/work.gif" alt="WORK" class="row"/>-->
+<ul class="workCopy row">
+<li> 
+<a class="fancybox" href="#inline6"><img src="images/images-3.jpg" width="150" height="150" alt="WSJ" />
+</a>
+<div id="inline6" style="width:400px;display: none;">
+		<h3>HTML and CSS work for the redesign of WSJ.com</h3>
+		<p>
+			HTML5, CSS3, jQuery for the first iteration of the new <a href="http://www.wsj.com">wsj.com</a> Web site launched 9/16/2008.
+		</p>
+</div>
+</li> 
+<li> 
+<a class="fancybox" href="#inline1"><img src="images/imgres.jpeg" width="151" height="98" alt="Electus" />
+</a>
+<div id="inline1" style="width:400px;display: none;">
+		<h3>Development work for Electus.com</h3>
+		<p>
+			HTML5, CSS3, JavaScript, jQuery for the first iteration of this site  http://www.electus.com.
+		</p>
+</div>
+</li> 
+<li>
+  <a class="fancybox" href="#inline3"><img src="images/SwUoh6qs57G_eGdIzza6iPVfDHt7WgyfUjpFBYfKq54A7RlA8Dz0DiF90wZRA8JUtw0g=s102.jpg" width="102" height="85" />
+  </a>
+  <div id="inline3" style="width:400px;display: none;">
+		<h3>Development work for BMWUSA.com and <a href="http://www.bmwactivatethefuture.com">bmwactivatethefuture.com</a></h3>
+		<p>
+			HTML5, CSS3, JavaScript/jQuery, RWD for iPAd and iPhone for the BMWUSA.com  homepage for the Super Bowl 2011.  I also developed the first iteration of http://www.bmwactivatethefuture.com.
+            
+		</p>
+</div>
+  </li> 
+<!--<li>
+<a class="fancybox" href="#inline4">
+  <img src="images/images-4.jpg" width="113" height="85" />
+</a>
+ <div id="inline3" style="width:400px;display: none;">
+		<h3>Development work for bmwactivatethefuture.com</h3>
+		<p>
+			HTML5, CSS3, JavaScript/jQuery, RWD for iPAd and iPhone for the BMWUSA.com  homepage for the Super Bowl 2011.
+		</p>
+</div> 
+  
+</li>--> 
+<li>
+  <a class="fancybox" href="#inline2"><img src="images/GozRs-F4zSFdqoCPG9LQcRoovUq3ZULmD_jG0w2GvoVs--A6dlE_IRZT2RlsCvgPrN63sA=s94.jpg" width="94" height="85" alt="SONY" /></a>
+<div id="inline2" style="width:400px;display: none;">
+		<h3>UI development work for SONY</h3>
+		<p>
+			HTML5, CSS3, JavaScript/jQuery, JRuby</p>
+            <ul><li><a href="http://www.sonymusicdigital.com/ciara">http://www.sonymusicdigital.com/ciara</a></li>
+<li><a href="http://www.sonymusicdigital.com/alan-jackson">http://www.sonymusicdigital.com/alan-jackson</a></li>
+<li><a href="http://www.sonymusicdigital.com/stevie-ray-vaughan">http://www.sonymusicdigital.com/stevie-ray-vaughan</a></li> 
+<li><a href="http://www.sonymusicdigital.com/stereo-skyline">http://www.sonymusicdigital.com/stereo-skyline</a></li>
+<li><a href="http://www.sonymusicdigital.com/american-idol">http://www.sonymusicdigital.com/american-idol</a></li> 
+<li><a href="http://www.sonymusicdigital.com/backstreet-boys">http://www.sonymusicdigital.com/backstreet-boys</a></li>
+<li><a href="http://www.sonymusicdigital.com/miranda-lambert">http://www.sonymusicdigital.com/miranda-lambert</a></li>
+</ul>
+		
+</div>  
+  
+  </li> 
+
+<li>
+<a class="fancybox" href="#inline4"><img src="images/ima.png" width="230" height="72" alt="IMA" /></a>
+
+<div id="inline4" style="width:400px;display: none;">
+		<h3>Lead the team in the production and development <a href="http://www.mytouchtunes.com">mytouchtunes.com</a></h3>
+		<p>
+			HTML4, CSS2, YUI work.  Integrated the PHP code into my front-end code.  Worked with designer and PM on ideas for the new design of the site.
+		</p>
+</div> 
+</li>
+<li>
+<a class="fancybox" href="#inline5">
+<img src="images/Ec7s82o8CWY7MtnbJvV7XSRfbJLZGgK10tU2itJOlwW17hZyzDnWX_GCnL42mnbzlIQ49A=s127.jpg" width="127" height="85" />
+</a>
+<div id="inline5" style="width:400px;display: none;">
+		<h3>HTML, CSS, Expression Engine for <a href="http://www.thefrisky.com">thefrisky.com</a></h3>
+		<p>
+			Worked in Expression Engine and wrote HTML, CSS for site pages. X-browser/x-platform testing.
+		</p>
+</div>
+</li>
+<li>
+<a class="fancybox" href="#inline7"><img src="images/unnamed.jpg" width="152" height="85" alt="GreenTech Media" /></a>
+<div id="inline7" style="width:400px;display: none;">
+		<h3>HTML, CSS, Expression Engine work for <a href="http://www.greentechmedia.com">greentechmedia.com</a></h3>
+		<p>
+			Worked in Expression Engine and wrote HTML, CSS for site pages. X-browser/x-platform testing and bug fixing for IE6 and 7.
+		</p>
+</div>
+
+</li>
+<li>
+<a class="fancybox" href="#inline8"><img src="images/wetv.png" width="170" height="86" alt="WeTV" /></a>
+<div id="inline7" style="width:400px;display: none;">
+		<h3>HTML, CSS work for <a href="http://www.wetv.com">wetv.com</a></h3>
+		<p>
+			Built out the first iteration of the WeTV.com video page using HTML and jQuery.
+		</p>
+</div>
+</li>
+<li>
+<a class="fancybox" href="#inline9"><img src="images/saks.png" width="103" height="102" alt="Saks" /></a>
+<div id="inline9" style="width:400px;display: none;">
+		<h3>HTML, CSS, JavaScript work for <a href="http://www.saks.com">Saks.com</a></h3>
+		<p>
+			Built out two versions of the saks.com Web site for the AB testing phase of the saks.com redesign project. I also worked on the live site doing CSS updates and adding content to the Blue Martini CMS.
+		</p>
+</div>
+
+</li>
+<li>
+<a class="fancybox" href="#inline10"><img src="images/np.png" width="193" height="34" alt="NP" /></a>
+<div id="inline10" style="width:400px;display: none;">
+		<h3>HTML, CSS and Flash work for <a href="http://www.tvguide.com/">tvguide.com</a></h3>
+		<p>
+			Worked on the re-design of tvguide.com as a Web Producer writing HTML, CSS in a .NET environment.  Integration with C# and Flash games was also performed. 
+		</p>
+</div>
+
+</li>
+<li>
+<a class="fancybox" href="#inline11"><img src="images/CDMNY_logo.gif" width="209" height="91" alt="NP" />
+</a>
+<div id="inline11" style="width:400px;display: none;">
+		<h3>HTML, CSS and JavaScript.</h3>
+		<p>
+		Worked on the project management app for CDM using HTML, CSS and JavaScript and integrating into Java code base. 
+		</p>
+</div>
+
+</li>
+<li>
+<a class="fancybox" href="#inline12"><img src="images/bmlogo.png" width="121" height="57" alt="NP" /></a>
+<div id="inline12" style="width:400px;display: none;">
+		<h3>HTML, CSS, WordPress work for clients.</h3>
+		<p>
+		Built out sites for clients.  Updated Wordpress content for Ford and Sunbeam.  Built out the home page for first iteration of Hormel.com home page re-design.</p>
+</div>
+</li>
+<li>
+<a class="fancybox" href="#inline13"><img src="images/eZ7vtNTAYCY_Mey5ViCUve_wNGM6O_NMbscHCGPPZylJhHZOtQWC662XmGrnkFkYF3hZnA=s85.jpg" width="85" height="85" alt="NP" />
+</a>
+
+<div id="inline13" style="width:400px;display: none;">
+		<h3>HTML, CSS, jQuery work for clients.</h3>
+		<p>
+		Built out Web sites for various clients.  </p>
+</div>
+</li>
+</ul>
+</article>
+<!--<sidebar class="col span_4 clr">
+Insert sidebar stuff here.
+</sidebar>-->
+</section><!-- content_wrap -->
+
+</div>
+<footer class="clearfix"> 
+<div class="fwrap">
+<ul id="nav2">
+<li><a href="termsofuse.php">Terms of Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</li><li class="last"><a href="privacy.php">Privacy Policy</a></li>
+</ul>
+<div class="fcopy row">&copy;2013 WorldShaker Interactive, Inc. All rights reserved.</div>
+</div>
+</footer>
+<script language="javascript1.5" src="js/html5shiv-printshiv.js"></script>
+<script language="javascript1.5" src="js/html5shiv.js"></script>
+</body>
+
+</html>

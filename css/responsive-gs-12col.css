@@ -1,0 +1,183 @@
+* { -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; }
+
+/* MAIN CONTAINER */
+.container						{ margin: 0 auto; }
+
+
+/* SELF CLEARING FLOATS - CLEARFIX METHOD */
+.row:after, .col:after, .clr:after, .group:after { 
+	content: ""; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden; }
+
+
+/* DEFAULT ROW STYLES */
+/*.row { margin-bottom: 1.5em; }*/ /* set according to preference*/
+			
+								  
+/* DEFAULT COLUMN STYLES */
+.col { 
+	display: block;
+	float:left;
+	width: 100%;
+}
+
+@media ( min-width : 480px ) {
+	.col {
+		margin-left: 2%;
+	}
+}
+@media ( min-width : 480px ) {
+	.col {
+		margin-left: 2%;
+	}
+}
+
+/* RESET MARGINS */
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/* COLUMN WIDTH ON DISPLAYS +480px */
+@media ( min-width : 480px ) {
+	.span_1 { width: 6.5%; }
+	.span_2 { width: 15.0%; }
+	.span_3 { width: 23.5%; }
+	.span_4 { width: 32.0%; }
+	.span_5 { width: 40.5%; }
+	.span_6 { width: 49.0%; }
+	.span_7 { width: 57.5%; }
+	.span_8 { width: 66.0%; }
+	.span_9 { width: 74.5%; }
+	.span_10 { width: 83.0%; }
+	.span_11 { width: 91.5%; }
+	.span_12 { width: 100%; }
+}
+/*@media ( min-width : 480px ) {
+	#global_nav{
+	float:none;
+	display:block;
+	font-size:.9em;
+	margin:0 auto;
+	
+}*/
+/*@media screen and (max-width: 600px) { 
+header{
+height:210px;
+} 
+ header hgroup  nav {   
+            height: auto;  
+        }  
+        header hgroup nav ul {  
+            width: 100%;  
+            display: block;  
+            height: auto;  
+        }  
+        header hgroup nav li {  
+            width: 100%;  
+            float: none;  
+            position: relative;  
+        }  
+        header hgroup nav li a {  
+            border-bottom: 1px solid #576979;
+						display:block;  
+              
+        }  
+        header hgroup nav a {  
+            text-align: left;  
+            width: 100%;  
+     
+        }  
+ }  
+		
+		
+@media only screen and (max-width : 480px) { 
+header{
+height:210px;
+}  
+header hgroup nav {  
+            border-bottom: 0;  
+			width:100%;
+        }  
+header hgroup nav ul {  
+            display: none;  
+            height: auto;  
+}  
+header hgroup nav a#pull {  
+            display: block;  
+            width: 100%;  
+            position: relative; 
+						color:#fff;
+						text-decoration:none; 
+}  
+header hgroup nav a#pull:after {  
+            content:"";  
+            background: url('http://www.worldshaker.com/images/nav-icon.png');
+						background-repeat: no-repeat;  
+            height: 30px; 
+						width:30px; 
+            display: inline-block;  
+            position: absolute; 
+            top: 5px; 
+						right:15px; 
+        }  
+    }  
+		
+		
+@media only screen and (max-width : 320px) {  
+header{
+height:210px;
+} 
+header hgroup nav {  
+            border-bottom: 0;  
+			width:280px;
+        } 
+header hgroup nav li {  
+            display: block;  
+            float: none;  
+            /*width: 100%; 
+        }  
+header hgroup nav li a {  
+            border-bottom: 1px solid #576979;  
+        }  
+ } */ 
+ 
+/* styles for mobile */
+/* iPad [portrait + landscape] */
+@media only screen and (max-device-width: 768px) {
+	.selector-01 { margin: 10px; }
+	.selector-02 { margin: 10px; }
+	.selector-03 { margin: 10px; }
+	#page_wrap.container{
+	max-width:768px;
+}
+	#page_wrap.container #content_wrap.row{
+	
+	
+}
+
+}
+
+/* iPhone [portrait + landscape] */
+@media only screen and (max-device-width: 480px) {
+	.selector-01 { margin: 10px; }
+	.selector-02 { margin: 10px; }
+	.selector-03 { margin: 10px; }
+}
+
+ @media screen and (max-width: 600px) {
+.tinynav { display: block }
+ #nav, #nav2 { display: none }
+ }
+ /*@media screen and (max-width: 900px) {
+	 #page_wrap.container {
+		width:100%; 
+	 }
+#page_wrap.container #content_wrap.row{
+	margin:0 auto;
+	max-width:90%;
+}
+}*/
